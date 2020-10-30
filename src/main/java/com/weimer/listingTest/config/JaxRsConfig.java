@@ -1,6 +1,6 @@
 package com.weimer.listingTest.config;
 
-import com.weimer.listingTest.jaxrs.ListingResource;
+import com.weimer.listingTest.resources.ListingResource;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.server.wadl.internal.WadlResource;
 import org.springframework.beans.factory.annotation.Autowired;
