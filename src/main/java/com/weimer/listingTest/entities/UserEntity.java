@@ -86,7 +86,6 @@ public class UserEntity {
 
     @Override
     public String toString() {
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(this);
+        return new Gson().toJson(this);
     }
 }
