@@ -1,5 +1,6 @@
 package com.weimer.listingTest.resources;
 
+import com.weimer.listingTest.ApiException;
 import com.weimer.listingTest.entities.ListingEntity;
 import com.weimer.listingTest.repositories.ListingRepository;
 import org.slf4j.Logger;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Component;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
@@ -31,5 +33,15 @@ public class ListingResource {
         listingRepository.findAll().forEach(listings::add);
         LOGGER.info("list result: {}", listings);
         return listings;
+    }
+
+    @GET
+    @Path("/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public ListingEntity getListingById(@PathParam("id") Integer id) {
+        LOGGER.info("getListingById invoked, ID: {}", id);
+        ListingEntity listingEntity = listingRepository.findById(id).orElseThrow(() -> {return new ApiException("ID NOT FOUND", id.toString());});
+        LOGGER.info("Find Listing by id result: {}", listingEntity);
+        return listingEntity;
     }
 }

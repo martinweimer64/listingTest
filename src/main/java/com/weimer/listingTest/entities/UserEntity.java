@@ -1,6 +1,7 @@
 package com.weimer.listingTest.entities;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -85,6 +86,7 @@ public class UserEntity {
 
     @Override
     public String toString() {
-        return new Gson().toJson(this);
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        return gson.toJson(this);
     }
 }

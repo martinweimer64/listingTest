@@ -1,6 +1,10 @@
 package com.weimer.listingTest.entities;
 
+import com.google.gson.ExclusionStrategy;
+import com.google.gson.FieldAttributes;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.annotations.Expose;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,15 +20,18 @@ public class SpecialPriceEntity {
 
     @Id
     @Column(name = "id")
+    @Expose
     private int id;
 
     @ManyToOne
     @JoinColumn(name = "listing_id")
     private ListingEntity listingEntity;
 
+    @Expose
     @Column(name = "date")
     private Date date;
 
+    @Expose
     @Column(name = "price")
     private double price;
 
@@ -90,6 +97,8 @@ public class SpecialPriceEntity {
 
     @Override
     public String toString() {
-        return new Gson().toJson(this);
+        Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().setPrettyPrinting().create();
+        return gson.toJson(this);
     }
+
 }
