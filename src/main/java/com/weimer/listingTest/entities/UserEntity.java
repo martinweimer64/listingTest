@@ -1,8 +1,6 @@
 package com.weimer.listingTest.entities;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;

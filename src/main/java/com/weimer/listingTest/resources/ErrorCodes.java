@@ -4,8 +4,12 @@ import javax.ws.rs.core.Response;
 
 public enum ErrorCodes {
     LISTING_NOT_FOUND(1000, Response.Status.NOT_FOUND.getStatusCode(), "Listing Not Found in DB"),
-    LISTING_NOT_CREATED(1001, Response.Status.BAD_REQUEST.getStatusCode(), "Listing cannot be created");
-
+    LISTING_NOT_CREATED(1001, Response.Status.BAD_REQUEST.getStatusCode(), "Listing cannot be created"),
+    SPECIAL_PRICE_NOT_CREATED(1002, Response.Status.BAD_REQUEST.getStatusCode(), "SpecialPrice cannot be created"),
+    LISTING_NOT_UPDATED(1003, Response.Status.BAD_REQUEST.getStatusCode(), "Listing cannot be updated"),
+    SPECIAL_PRICE_NOT_LISTING(1004, Response.Status.BAD_REQUEST.getStatusCode(),
+            "SpecialPrice does not belong to selected listing"),
+    SPECIAL_PRICE_NOT_FOUND(1005, Response.Status.NOT_FOUND.getStatusCode(), "SpecialPrice Not Found in DB");
 
     private int code;
     private int statusCode;

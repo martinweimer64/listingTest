@@ -7,9 +7,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class ApiError implements Serializable {
-	private static final long serialVersionUID = -1483017785983468113L;
-	
-	private int code;
+    private static final long serialVersionUID = -1483017785983468113L;
+
+    private int code;
     private int statusCode;
     private String transactionId;
     private String dateTime;
