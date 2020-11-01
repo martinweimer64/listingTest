@@ -39,18 +39,6 @@ public class SpecialPriceResource extends Resource {
         return specialPrices;
     }
 
-    @DELETE
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Path("/{id}")
-    public void deleteSpecialPrice(@PathParam("id") Integer id) {
-        LOGGER.info("Delete SpecialPrice invoked, ID: {}", id);
-        SpecialPriceEntity specialPrice = specialPriceRepository.findById(id).orElseThrow(() -> {
-            return getApiException(ErrorCodes.SPECIAL_PRICE_NOT_FOUND, "SpecialPriceEntity(" + id
-                    + ") cannot fetch SpecialPrice, entity not found");
-        });
-        specialPriceRepository.delete(specialPrice);
-    }
-
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
