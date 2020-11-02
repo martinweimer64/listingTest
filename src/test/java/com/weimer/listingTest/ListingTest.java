@@ -32,12 +32,12 @@ import static org.springframework.http.HttpMethod.PUT;
 class ListingTest {
 
     public static final String TEST_LISTING_API_BASE_PATH = "/test/v1/";
-    final ParameterizedTypeReference<ListingEntity> LISTING_TYPE_REFERENCE = new ParameterizedTypeReference<>() {
+    final ParameterizedTypeReference<ListingEntity> LISTING_TYPE_REFERENCE = new ParameterizedTypeReference<ListingEntity>() {
     };
-    final ParameterizedTypeReference<CheckOutResponse> CHECKOUT_TYPE_REFERENCE = new ParameterizedTypeReference<>() {
+    final ParameterizedTypeReference<CheckOutResponse> CHECKOUT_TYPE_REFERENCE = new ParameterizedTypeReference<CheckOutResponse>() {
     };
     final ParameterizedTypeReference<List<ListingEntity>> LISTING_LIST_TYPE_REFERENCE =
-            new ParameterizedTypeReference<>() {
+            new ParameterizedTypeReference<List<ListingEntity>>() {
             };
     @Inject
     ListingRepository listingRepository;
