@@ -2,6 +2,7 @@ package com.weimer.listingTest.config;
 
 import com.weimer.listingTest.resources.ListingResource;
 import com.weimer.listingTest.resources.SpecialPriceResource;
+import com.weimer.listingTest.resources.UncaughtExceptionMapper;
 import io.swagger.jaxrs.config.BeanConfig;
 import io.swagger.jaxrs.listing.ApiListingResource;
 import io.swagger.jaxrs.listing.SwaggerSerializers;
@@ -22,6 +23,7 @@ public class JaxRsConfig extends ResourceConfig {
         register(SpecialPriceResource.class);
         register(WadlResource.class);
         register(ApiListingResource.class);
+        register(UncaughtExceptionMapper.class);
         register(SwaggerSerializers.class);
         BeanConfig swaggerConfigBean = new BeanConfig();
         swaggerConfigBean.setConfigId("Swagger");

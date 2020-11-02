@@ -9,8 +9,10 @@ public enum ErrorCodes {
     LISTING_NOT_UPDATED(1003, Response.Status.BAD_REQUEST.getStatusCode(), "Listing cannot be updated"),
     SPECIAL_PRICE_NOT_LISTING(1004, Response.Status.BAD_REQUEST.getStatusCode(),
             "SpecialPrice does not belong to selected listing"),
-    SPECIAL_PRICE_NOT_FOUND(1005, Response.Status.NOT_FOUND.getStatusCode(), "SpecialPrice Not Found in DB");
-
+    SPECIAL_PRICE_NOT_FOUND(1005, Response.Status.NOT_FOUND.getStatusCode(), "SpecialPrice Not Found in DB"),
+    CHECKIN_BEFORE_TODAY(1006, Response.Status.BAD_REQUEST.getStatusCode(), "Checking must be a date after today"),
+    CHECKOUT_BEFORE_CHECKIN(1007, Response.Status.BAD_REQUEST.getStatusCode(), "Checking must be before checkout"),
+    MORE_THAN_28(1008, Response.Status.BAD_REQUEST.getStatusCode(), "Cannot book a listing for more than 28 days");
     private int code;
     private int statusCode;
     private String description;
